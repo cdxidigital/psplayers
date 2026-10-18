@@ -1,0 +1,41 @@
+{
+  "url": "http://127.0.0.1:8081/",
+  "viewports": {
+    "desktop": {
+      "width": 1280,
+      "height": 800,
+      "status": 200,
+      "title": "Pornstar Players",
+      "hasCanvas": false,
+      "bodyTextLen": 1090,
+      "bodyTextHash": "f433e8037a46edb76463761310fe8e7a083aa8f5dc8993a4400f0eaea86366fa",
+      "bodyTextPrefix": "5,000CHIPS VIP LOUNGE Real stars. Your table is waiting. 5,000 c",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/app-builder-built.png"
+    },
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "status": 200,
+      "title": "Pornstar Players",
+      "hasCanvas": false,
+      "bodyTextLen": 0,
+      "bodyTextHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bodyTextPrefix": "",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/app-builder-built-mobile.png"
+    }
+  },
+  "brandWarnings": [],
+  "authWarnings": [],
+  "verdictFile": "/workspace/screenshots/app-builder-built.json",
+  "divergesFromBaseline": true,
+  "baselineReasons": [
+    "desktop: body text replaced (similar length, page start changed)",
+    "mobile: body text collapsed (1080 -> 0 chars)"
+  ]
+}

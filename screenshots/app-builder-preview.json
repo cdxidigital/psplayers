@@ -1,0 +1,36 @@
+{
+  "url": "http://127.0.0.1:8080/",
+  "viewports": {
+    "desktop": {
+      "width": 1280,
+      "height": 800,
+      "status": 200,
+      "title": "Pornstar Players",
+      "hasCanvas": false,
+      "bodyTextLen": 1085,
+      "bodyTextHash": "5e7eb794342af0930634c38b2d333d2d8a10745c30b8c979fcb37fb481e16ace",
+      "bodyTextPrefix": "5,000CHIPS VIP LOUNGE Real stars. Your table is waiting. Three g",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/app-builder-preview.png"
+    },
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "status": 200,
+      "title": "Pornstar Players",
+      "hasCanvas": false,
+      "bodyTextLen": 1080,
+      "bodyTextHash": "0a46c7936319820fb7f4a71a072c4355dc00a1f8f5e6d23e630b4a7cd26a6388",
+      "bodyTextPrefix": "5,000 VIP LOUNGE Real stars. Your table is waiting. Three games,",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/app-builder-preview-mobile.png"
+    }
+  },
+  "brandWarnings": [],
+  "authWarnings": [],
+  "verdictFile": "/workspace/screenshots/app-builder-preview.json"
+}

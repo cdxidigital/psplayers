@@ -1,0 +1,165 @@
+@import "tailwindcss";
+
+@theme {
+  --color-midnight: #0a0b14;
+  --color-graphite: #1e1e25;
+  --color-gold: #d4af37;
+  --color-gold-hi: #f6e3a1;
+  --color-gold-deep: #9c7a1b;
+  --color-pink: #ff2ec7;
+  --color-violet: #7a00ff;
+  --color-mist: #b9b9c8;
+  --color-ink: #f7f4ee;
+  --color-line: #3a3a46;
+  --font-display: "Playfair Display", Georgia, serif;
+  --font-sans: Montserrat, ui-sans-serif, system-ui, sans-serif;
+  --tracking-brand: 0.22em;
+  --radius-card: 0.9rem;
+}
+
+@layer base {
+  html,
+  body {
+    background: var(--color-midnight);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+  }
+
+  button:not(:disabled),
+  [role="button"]:not(:disabled),
+  summary {
+    cursor: pointer;
+  }
+
+  button:disabled {
+    cursor: not-allowed;
+  }
+}
+
+.floor {
+  background:
+    radial-gradient(ellipse at 50% -8%, color-mix(in oklab, var(--color-violet) 32%, transparent), transparent 46%),
+    radial-gradient(ellipse at 100% 100%, color-mix(in oklab, var(--color-pink) 14%, transparent), transparent 40%),
+    var(--color-midnight);
+  min-height: 100svh;
+}
+
+.card-face {
+  box-shadow: 0 10px 18px rgb(0 0 0 / 0.38);
+}
+
+.felt {
+  background:
+    radial-gradient(ellipse at 50% 0%, color-mix(in oklab, var(--color-gold) 16%, transparent), transparent 58%),
+    linear-gradient(180deg, #163428, #0c1c16);
+}
+
+.reel-cell {
+  background: linear-gradient(180deg, #16161f, #0a0b14);
+  box-shadow: inset 0 0 0 1px color-mix(in oklab, var(--color-gold) 28%, transparent);
+}
+
+.gold-text {
+  background: linear-gradient(180deg, var(--color-gold-hi), var(--color-gold) 55%, var(--color-gold-deep));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.wheel-rotor {
+  transform-box: view-box;
+  transform-origin: center;
+}
+
+.live-dot {
+  width: 0.45rem;
+  height: 0.45rem;
+  border-radius: 9999px;
+  background: var(--color-pink);
+  box-shadow: 0 0 0 0 color-mix(in oklab, var(--color-pink) 65%, transparent);
+  animation: live-pulse 1.6s ease-out infinite;
+}
+
+@keyframes live-pulse {
+  70% {
+    box-shadow: 0 0 0 6px transparent;
+  }
+  100% {
+    box-shadow: 0 0 0 0 transparent;
+  }
+}
+
+.hero-frame {
+  min-height: 32rem;
+}
+
+.hero-still {
+  animation: hero-drift 22s ease-in-out infinite alternate;
+  transform-origin: 62% 48%;
+}
+
+@keyframes hero-drift {
+  from {
+    transform: scale(1.04);
+  }
+  to {
+    transform: scale(1.12) translate3d(-1.5%, -1%, 0);
+  }
+}
+
+@media (min-width: 40rem) {
+  .hero-frame {
+    min-height: 38rem;
+  }
+}
+
+.reel-window {
+  overflow: hidden;
+  position: relative;
+}
+
+.reel-spin .reel-strip {
+  animation: reel-run 0.16s linear infinite;
+}
+
+.reel-land {
+  animation: reel-land 0.38s cubic-bezier(0.16, 0.84, 0.32, 1);
+}
+
+@keyframes reel-run {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-50%);
+  }
+}
+
+@keyframes reel-land {
+  0% {
+    transform: translateY(-18%);
+  }
+  65% {
+    transform: translateY(4%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.win-cell {
+  outline: 2px solid var(--color-pink);
+  outline-offset: -2px;
+  background: color-mix(in oklab, var(--color-pink) 16%, var(--color-graphite));
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reel-spin .reel-strip,
+  .reel-land,
+  .wheel-rotor,
+  .hero-still,
+  .live-dot {
+    animation: none !important;
+    transition: none !important;
+  }
+}
