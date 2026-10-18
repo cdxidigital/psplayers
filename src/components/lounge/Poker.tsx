@@ -49,7 +49,7 @@ export function Poker() {
     setDeck(drawn.deck);
     setPhase("deal");
     const net = back - bet;
-    setLastMoment(net > 0 ? "win" : net < 0 ? "loss" : null);
+    setLastMoment(scored.mult > 0 ? "win" : "loss");
     setRoundId((current) => current + 1);
     setBanner(scored.mult > 0 ? `${scored.name} · ${formatDelta(net)}` : `${scored.name} · ${formatDelta(-bet)}`);
   }

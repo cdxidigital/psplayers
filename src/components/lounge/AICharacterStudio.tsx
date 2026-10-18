@@ -76,8 +76,8 @@ export function AICharacterStudio({
         </p>
       </div>
 
-      <div className="grid gap-4 p-4 sm:p-6 lg:grid-cols-[minmax(0,1fr)_minmax(16rem,0.75fr)]">
-        <div>
+      <div className="grid gap-4 p-4 sm:p-6 lg:grid-cols-3">
+        <div className="lg:col-span-2">
           <div className="grid grid-cols-2 gap-2 sm:grid-cols-4">
             {AI_CHARACTERS.map((option) => (
               <button
@@ -129,9 +129,9 @@ export function AICharacterStudio({
           </p>
         </div>
 
-        <div className="flex min-h-64 items-center justify-center overflow-hidden rounded-md border border-line bg-graphite">
+        <div className="flex min-h-64 items-center justify-center overflow-hidden rounded-md border border-line bg-graphite lg:col-span-1">
           {image ? (
-            <img src={image} alt={`${character.name} in an AI-generated table pose`} className="max-h-[32rem] w-full object-contain" />
+            <img src={image} alt={`${character.name} in an AI-generated table pose`} className="max-h-96 w-full object-contain" />
           ) : (
             <div className="px-6 py-8 text-center">
               <img src={`/art/dealer-${characterId}.jpg`} alt="" className="mx-auto max-h-56 rounded-md object-cover" />

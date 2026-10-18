@@ -39,7 +39,7 @@ function promptFor(characterId: CharacterId, moment: CharacterMoment): string {
   };
   return [
     "Edit the supplied reference image into one polished, photorealistic premium lounge portrait.",
-    `This is ${character.name}, a fictional adult woman aged 25 or older. Use the supplied reference as the identity anchor: preserve her same face, facial features, hair, skin tone, body proportions, and overall recognizable identity. Do not replace her with a different person.`,
+    `This is ${character.name}, a fictional, computer-generated adult character aged 25 or older. Treat the supplied game artwork as a fictional design asset and do not portray or imitate any real individual. Use the supplied reference as the identity anchor: preserve her same face, facial features, hair, skin tone, body proportions, and overall recognizable identity. Do not replace her with a different person.`,
     `Character direction: ${character.style}`,
     momentPrompt[moment],
     "Suggestive, playful, glamorous adult editorial styling only. Keep all intimate areas fully covered by opaque clothing. No nudity, no explicit sexual activity, no exposed intimate areas, no minors, no additional people, no text, and no logos. Tasteful cinematic lighting, flattering composition, upscale velvet-card-room setting.",
