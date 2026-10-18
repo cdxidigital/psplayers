@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { SuitMark } from "@/components/lounge/Icons";
+import { AICharacterStudio } from "@/components/lounge/AICharacterStudio";
 import { playClick, playLose, playWin, unlockAudio } from "@/lib/lounge/audio";
 import type { Card, Suit } from "@/lib/lounge/blackjack";
 import { TABLE_BETS, oneDeck, scorePoker, take } from "@/lib/lounge/originals";
@@ -13,6 +14,8 @@ export function Poker() {
   const [deck, setDeck] = useState<Card[]>([]);
   const [phase, setPhase] = useState<"deal" | "draw">("deal");
   const [banner, setBanner] = useState("Jacks or better. Hold what you want, then draw.");
+  const [lastMoment, setLastMoment] = useState<"win" | "loss" | null>(null);
+  const [roundId, setRoundId] = useState(0);
 
   function deal() {
     unlockAudio();
@@ -27,6 +30,7 @@ export function Poker() {
     setHand(dealt.cards);
     setHolds([false, false, false, false, false]);
     setPhase("draw");
+    setLastMoment(null);
     setBanner("Hold, then draw.");
   }
 
@@ -45,6 +49,8 @@ export function Poker() {
     setDeck(drawn.deck);
     setPhase("deal");
     const net = back - bet;
+    setLastMoment(scored.mult > 0 ? "win" : "loss");
+    setRoundId((current) => current + 1);
     setBanner(scored.mult > 0 ? `${scored.name} · ${formatDelta(net)}` : `${scored.name} · ${formatDelta(-bet)}`);
   }
 
@@ -55,9 +61,10 @@ export function Poker() {
       <div className="overflow-hidden rounded-card border border-gold/40 bg-graphite">
         <img src="/art/poker.jpg" alt="" className="h-40 w-full object-cover sm:h-48" />
         <div className="p-4 sm:p-6">
-          <p className="text-xs font-semibold tracking-brand text-pink">JACKS OR BETTER</p>
+          <p className="text-xs font-semibold tracking-brand text-pink">JACKS OR BETTER · STRIP POKER</p>
           <h2 className="font-display text-2xl text-gold">Royal Velvet</h2>
-          <p className="mt-4 min-h-6 text-sm font-semibold text-gold" data-testid="poker-banner">
+          <p className="mt-1 text-xs text-mist">Play chips only. Adult fictional hosts react in suggestive, fully covered poses.</p>
+          <p className="mt-4 min-h-6 text-sm font-semibold text-gold" data-testid="poker-banner" aria-live="polite">
             {banner}
           </p>
           <div className="mt-4 flex flex-wrap gap-2">
@@ -150,6 +157,7 @@ export function Poker() {
           </ul>
         </div>
       </div>
+      <AICharacterStudio moment={lastMoment} roundId={roundId} />
     </div>
   );
 }
