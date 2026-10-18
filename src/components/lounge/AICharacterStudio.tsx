@@ -84,6 +84,7 @@ export function AICharacterStudio({
                 key={option.id}
                 type="button"
                 aria-pressed={characterId === option.id}
+                disabled={pending}
                 onClick={() => {
                   setCharacterId(option.id);
                   setImage(null);
